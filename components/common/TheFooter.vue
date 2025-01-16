@@ -1,70 +1,126 @@
 <!-- components/common/TheFooter.vue -->
 <template>
     <footer class="bg-slate-900 text-slate-300">
-        <!-- 상단 섹션 동일 -->
+        <!-- 메인 푸터 콘텐츠 -->
         <div class="container mx-auto px-4 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                <!-- 사이트 소개: 동일 -->
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-4">DIMAD</h3>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <!-- DIMAD 소개 섹션 -->
+                <div class="md:col-span-4">
+                    <h3 class="text-xl font-bold text-white mb-6">DIMAD</h3>
                     <p class="text-slate-400 mb-6">
-                        다양한 온라인 도구와 서비스를 제공하는<br class="hidden sm:block">
-                        올인원 플랫폼입니다.
+                        실용적인 도구부터 재미있는 콘텐츠까지<br class="hidden sm:block">
+                        디지털 노마드의 자유로운 실험실입니다.
                     </p>
+                    <!-- GitHub 링크 -->
                     <a href="https://github.com/yourid" target="_blank" rel="noopener noreferrer"
                         class="text-slate-400 hover:text-white transition-colors inline-flex items-center gap-2">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+                        <CodeBracketIcon class="w-6 h-6" />
                         <span>GitHub</span>
                     </a>
                 </div>
 
-                <!-- 서비스 섹션: 동일 -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4">서비스</h4>
-                    <div class="space-y-3">
-                        <div v-for="service in servicesList.services" :key="service.id">
-                            <NuxtLink :to="service.isImplemented ? service.path : '/coming-soon'"
-                                class="text-slate-400 hover:text-white transition-colors inline-block">
-                                {{ service.name }}
-                            </NuxtLink>
+                <!-- 서비스 섹션 (있는 카테고리만 표시) -->
+                <div :class="[
+                    'space-y-8',
+                    activeCategories.length <= 2 ? 'md:col-span-5' : 'md:col-span-8'
+                ]">
+                    <div v-if="activeCategories.length > 0">
+                        <h4 class="text-white font-semibold mb-6">서비스</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6"
+                            :class="{ 'md:grid-cols-3': activeCategories.length > 2 }">
+                            <div v-for="category in activeCategories" :key="category.id">
+                                <button @click="toggleCategory(category.id)"
+                                    class="w-full text-left flex items-center justify-between text-slate-300 hover:text-white transition-colors group mb-2"
+                                    :aria-expanded="openCategories[category.id]"
+                                    :aria-controls="`category-${category.id}`">
+                                    <span class="font-medium">{{ category.name }}</span>
+                                    <ChevronDownIcon
+                                        class="w-4 h-4 transition-transform duration-200 text-slate-400 group-hover:text-white"
+                                        :class="{ 'rotate-180': openCategories[category.id] }" />
+                                </button>
+                                <div v-show="openCategories[category.id]" :id="`category-${category.id}`"
+                                    class="ml-4 space-y-2">
+                                    <div v-for="service in getServicesByCategory(category.id)" :key="service.id">
+                                        <NuxtLink :to="service.path"
+                                            class="text-slate-400 hover:text-white transition-colors block py-1 flex items-center gap-2">
+                                            {{ service.name }}
+                                        </NuxtLink>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 고객지원 섹션: supportLinks 사용 -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4">고객지원</h4>
-                    <div class="space-y-3">
+                <!-- 고객지원 섹션 -->
+                <div class="md:col-span-3">
+                    <h4 class="text-white font-semibold mb-6">고객지원</h4>
+                    <div class="space-y-4">
                         <NuxtLink v-for="link in navigation.supportLinks" :key="link.path"
                             :to="link.isImplemented ? link.path : '/coming-soon'"
                             class="text-slate-400 hover:text-white transition-colors block">
                             {{ link.name }}
                         </NuxtLink>
-                        <a href="mailto:contact@dimad.com"
-                            class="text-slate-400 hover:text-white transition-colors block">
-                            contact@dimad.com
-                        </a>
+                        <div class="pt-4 border-t border-slate-800">
+                            <h5 class="text-white font-medium mb-3">Contact Us</h5>
+                            <a href="mailto:contact@dimad.com"
+                                class="text-slate-400 hover:text-white transition-colors flex items-center gap-2">
+                                <EnvelopeIcon class="w-4 h-4" />
+                                contact@dimad.com
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 하단 저작권 동일 -->
+        <!-- 하단 저작권 섹션 -->
         <div class="border-t border-slate-800">
             <div class="container mx-auto px-4 py-6">
-                <p class="text-slate-400 text-sm text-center">
-                    © {{ new Date().getFullYear() }} DIMAD. All rights reserved.
-                </p>
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p class="text-slate-400 text-sm">
+                        © {{ new Date().getFullYear() }} DIMAD. All rights reserved.
+                    </p>
+                    <div class="flex gap-6 text-sm">
+                        <NuxtLink to="/privacy" class="text-slate-400 hover:text-white transition-colors">
+                            개인정보 처리방침
+                        </NuxtLink>
+                        <NuxtLink to="/terms" class="text-slate-400 hover:text-white transition-colors">
+                            이용약관
+                        </NuxtLink>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+import {
+    ChevronDownIcon,
+    EnvelopeIcon,
+    CodeBracketIcon
+} from '@heroicons/vue/24/outline'
+
 const servicesList = useServices()
 const navigation = useNavigation()
+const { categories } = useCategories()
+
+const openCategories = ref<Record<string, boolean>>({})
+
+// 실제 서비스가 있는 카테고리만 필터링
+const activeCategories = computed(() => {
+    const servicesWithCategories = servicesList.services.map(service => service.categoryId)
+    const uniqueCategories = [...new Set(servicesWithCategories)]
+    return categories.filter(category => uniqueCategories.includes(category.id))
+})
+
+const toggleCategory = (categoryId: string) => {
+    openCategories.value[categoryId] = !openCategories.value[categoryId]
+}
+
+const getServicesByCategory = (categoryId: string) => {
+    return servicesList.services.filter(service => service.categoryId === categoryId)
+}
 </script>

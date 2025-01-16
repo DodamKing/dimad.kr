@@ -15,7 +15,7 @@ export function useNavigation() {
         {
             name: '서비스 둘러보기',
             path: '/explore',
-            isImplemented: false
+            isImplemented: true
         },
         {
             name: '고객지원',
