@@ -20,14 +20,11 @@
                 </div>
 
                 <!-- 서비스 섹션 (있는 카테고리만 표시) -->
-                <div :class="[
-                    'space-y-8',
-                    activeCategories.length <= 2 ? 'md:col-span-5' : 'md:col-span-8'
-                ]">
+                <!-- 서비스 섹션 수정 부분 -->
+                <div class="md:col-span-5"> <!-- 고정 너비로 변경 -->
                     <div v-if="activeCategories.length > 0">
                         <h4 class="text-white font-semibold mb-6">서비스</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6"
-                            :class="{ 'md:grid-cols-3': activeCategories.length > 2 }">
+                        <div class="space-y-6"> <!-- grid를 제거하고 space-y로 수직 간격 설정 -->
                             <div v-for="category in activeCategories" :key="category.id">
                                 <button @click="toggleCategory(category.id)"
                                     class="w-full text-left flex items-center justify-between text-slate-300 hover:text-white transition-colors group mb-2"
@@ -41,7 +38,7 @@
                                 <div v-show="openCategories[category.id]" :id="`category-${category.id}`"
                                     class="ml-4 space-y-2">
                                     <div v-for="service in getServicesByCategory(category.id)" :key="service.id">
-                                        <NuxtLink :to="service.path"
+                                        <NuxtLink :to="service.isImplemented ? service.path : '/coming-soon'"
                                             class="text-slate-400 hover:text-white transition-colors block py-1 flex items-center gap-2">
                                             {{ service.name }}
                                         </NuxtLink>
@@ -82,10 +79,10 @@
                         © {{ new Date().getFullYear() }} DIMAD. All rights reserved.
                     </p>
                     <div class="flex gap-6 text-sm">
-                        <NuxtLink to="/privacy" class="text-slate-400 hover:text-white transition-colors">
+                        <NuxtLink to="/#" class="text-slate-400 hover:text-white transition-colors"> <!-- privacy -->
                             개인정보 처리방침
                         </NuxtLink>
-                        <NuxtLink to="/terms" class="text-slate-400 hover:text-white transition-colors">
+                        <NuxtLink to="/#" class="text-slate-400 hover:text-white transition-colors"> <!-- terms -->
                             이용약관
                         </NuxtLink>
                     </div>

@@ -27,7 +27,7 @@
                             <span
                                 class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-violet-600 text-white shadow-lg">
                                 <BeakerIcon class="w-4 h-4 mr-2" />
-                                Digital Nomad's Lab
+                                DIMAD's Lab
                             </span>
                         </div>
 
@@ -59,8 +59,8 @@
                     <div class="text-center">
                         <h2 class="text-3xl font-bold text-slate-900 mb-6">Vision</h2>
                         <p class="text-lg text-slate-600 leading-relaxed">
-                            디지털 노마드의 자유로운 라이프스타일을 추구하며,<br class="hidden sm:block">
-                            더 많은 사람들에게 가치있는 디지털 경험을 제공합니다.
+                            '디지털 노마드'의 자유로운 사고에서 영감을 얻어,<br class="hidden sm:block">
+                            언제 어디서나 의미 있는 디지털 경험을 펼쳐갑니다.
                         </p>
                     </div>
 
@@ -117,7 +117,7 @@
                     <h2 class="text-3xl font-bold mb-6">함께 만들어가요</h2>
                     <p class="text-slate-300 mb-8">
                         새로운 아이디어나 협업 제안을 기다립니다.<br>
-                        여러분의 의견이 새로운 가치가 됩니다.
+                        여러분의 의견이 DIMAD가 지향하는 자유로운 디지털 세계를 더욱 풍성하게 만듭니다.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="mailto:contact@dimad.com"
@@ -150,22 +150,22 @@ const { categories } = useCategories()
 const journey = [
     {
         title: '시작',
-        description: '실용적인 도구들로 시작한 디지털 실험실. 일상의 불편함을 해결하는 것부터 시작했습니다.',
+        description: '실용적인 도구들로 출발한 초기 실험. 일상의 불편함에서 착안한 서비스를 선보였습니다.',
         icon: BeakerIcon
     },
     {
         title: '확장',
-        description: '실용성에 재미를 더해 다양한 형태의 디지털 콘텐츠로 가치를 확장합니다.',
+        description: '다양한 재미 요소를 더해 여러 분야의 디지털 콘텐츠로 영역을 확장합니다.',
         icon: RocketLaunchIcon
     },
     {
         title: '성장',
-        description: '사용자들의 피드백과 제안을 통해 더 나은 서비스를 만들어갑니다.',
+        description: '사용자의 목소리에 귀 기울이고, 제안을 적극 반영해 서비스를 발전시킵니다.',
         icon: SparklesIcon
     },
     {
         title: '자유',
-        description: '디지털 가치 창출을 통해 장소에 구애받지 않는 자유로운 라이프스타일을 실현합니다.',
+        description: '디지털을 통해 장소에 구애받지 않는 자유롭고 창의적인 라이프스타일을 모색합니다.',
         icon: GlobeAltIcon
     }
 ]

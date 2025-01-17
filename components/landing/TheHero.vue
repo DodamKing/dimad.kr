@@ -13,22 +13,24 @@
                     <span
                         class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-violet-50 to-indigo-50 text-violet-800 border border-violet-100">
                         <SparklesIcon class="w-4 h-4 mr-2" />
-                        Digital Nomad의 작은 실험실
+                        DIMAD의 작은 실험실
                     </span>
                 </div>
 
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6">
-                    자유롭게 만드는
+                    자유로운 발상으로
                     <span
                         class="inline-block bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                        디지털 가치
+                        디지털 가치를 창조
                     </span>
                 </h1>
 
                 <p class="text-lg md:text-xl text-slate-600 mb-12">
                     실용적인 도구부터 재미있는 콘텐츠까지,<br class="hidden sm:block">
                     더 나은 디지털 경험을 위한 다양한 실험을 이어갑니다.<br class="hidden sm:block">
-                    <span class="text-violet-600 font-medium">Digital Nomad</span>의 자유로운 여정에 함께해주세요.
+                    ‘디지털 노마드’ 정신에서 영감을 받은
+                    <span class="text-violet-600 font-medium">DIMAD</span>와 함께
+                    새로운 가능성을 만나보세요.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">

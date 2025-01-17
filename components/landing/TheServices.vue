@@ -57,7 +57,7 @@
                             {{ service.description }}
                         </p>
 
-                        <NuxtLink :to="service.path"
+                        <NuxtLink :to="service.isImplemented ? service.path : '/coming-soon'"
                             class="inline-flex items-center text-sm font-medium text-violet-600">
                             자세히 보기
                             <ArrowRightIcon class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -84,7 +84,7 @@ import { BeakerIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
 // 현재는 최신 3개 서비스만 표시 (나중에 로직 변경 가능)
 const previewServices = computed(() => {
     const services = useServices()
-    return services.services.slice(0, 3)
+    return [...services.services].filter(service => service.isImplemented).reverse().slice(0, 3)
 })
 </script>
 

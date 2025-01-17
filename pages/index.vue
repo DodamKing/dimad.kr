@@ -3,7 +3,6 @@
     <main>
         <LandingTheHero />
         <LandingTheServices />
-        <!-- <LandingTheFeatures /> -->
     </main>
 </template>
 

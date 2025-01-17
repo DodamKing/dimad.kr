@@ -10,7 +10,11 @@ export default defineNuxtConfig({
       title: 'DIMAD',
       meta: [
         { charset: 'utf-8'},
-        { name: 'viewport', content: 'width=device-width, initial-scale=1'}
+        { name: 'viewport', content: 'width=device-width, initial-scale=1'},
+        {
+          name: "description",
+          content: "디지털 노마드, 디마드의 홈페이지",
+        },
       ],
       link: [
         {
@@ -25,6 +29,10 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
   ],
+
+  build: {
+    transpile: ['fabric']
+  },
 
   runtimeConfig: {
     MONGODB_URI: process.env.MONGODB_URI

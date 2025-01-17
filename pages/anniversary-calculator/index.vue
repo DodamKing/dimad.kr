@@ -135,7 +135,7 @@ function calculateAnniversaries() {
 
 // SEO 및 메타 데이터
 useHead({
-    title: '기념일 계산기',
+    titleTemplate: '%s | 기념일 계산기',
     meta: [
         {
             name: "description",

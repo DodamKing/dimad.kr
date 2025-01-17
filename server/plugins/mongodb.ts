@@ -13,7 +13,7 @@ export default defineNitroPlugin(async () => {
         const client = new MongoClient(config.MONGODB_URI)
         await client.connect()
 
-        console.log('MongoDB Connected!')
+        console.log('Successfully connected to MongoDB!')
         const db = client.db('dibe2')
         globalThis.$db = db
     } catch (error) {
