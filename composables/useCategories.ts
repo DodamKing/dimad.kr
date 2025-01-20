@@ -1,5 +1,5 @@
 // composables/useCategories.ts
-import { WrenchScrewdriverIcon, SparklesIcon, PlayIcon, HeartIcon, BeakerIcon } from '@heroicons/vue/24/outline'
+import { WrenchScrewdriverIcon, SparklesIcon, PlayIcon, HeartIcon, BeakerIcon, BanknotesIcon } from '@heroicons/vue/24/outline'
 
 export const useCategories = () => {
     const categories = [
@@ -9,6 +9,13 @@ export const useCategories = () => {
             description: '일상의 불편함을 해결하는 실용적인 도구들',
             icon: WrenchScrewdriverIcon,
             subCategories: ['계산기', '변환기', '날짜', '시간']
+        },
+        {
+            id: 'finance',
+            name: '금융',
+            description: '재정 관리와 금융 계획을 도와주는 서비스',
+            icon: BanknotesIcon,
+            subCategories: ['계산기', '대출', '소득']
         },
         {
             id: 'entertainment',

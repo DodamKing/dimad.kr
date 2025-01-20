@@ -13,24 +13,25 @@
                     <span
                         class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-violet-50 to-indigo-50 text-violet-800 border border-violet-100">
                         <SparklesIcon class="w-4 h-4 mr-2" />
-                        DIMAD의 작은 실험실
+                        DIMAD의 상상 놀이터
                     </span>
                 </div>
 
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6">
-                    자유로운 발상으로
+                    창의적인 아이디어로
                     <span
                         class="inline-block bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                        디지털 가치를 창조
+                        일상의 가치를 확장
                     </span>
                 </h1>
 
                 <p class="text-lg md:text-xl text-slate-600 mb-12">
-                    실용적인 도구부터 재미있는 콘텐츠까지,<br class="hidden sm:block">
-                    더 나은 디지털 경험을 위한 다양한 실험을 이어갑니다.<br class="hidden sm:block">
-                    ‘디지털 노마드’ 정신에서 영감을 받은
-                    <span class="text-violet-600 font-medium">DIMAD</span>와 함께
-                    새로운 가능성을 만나보세요.
+                    간단한 계산기부터 퀴즈·테스트까지,<br class="hidden sm:block">
+                    <strong>유용한 도구</strong>와 <strong>즐거운 콘텐츠</strong>를 실험하는 창의적인 공간입니다.
+                    <br class="hidden sm:block">
+                    <strong>일상의 편의</strong>를 높이고 <strong>재미</strong>를 더하기 위해,
+                    <br class="hidden sm:block">
+                    <span class="text-violet-600 font-medium">DIMAD</span>는 끊임없이 새로운 아이디어를 시도하고 있습니다.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -53,8 +54,6 @@
 
 <script setup lang="ts">
 import { SparklesIcon, MapIcon, ArrowRightIcon, UserIcon } from '@heroicons/vue/24/outline'
-
-const navigation = useNavigation()
 </script>
 
 <style>

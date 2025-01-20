@@ -9,18 +9,17 @@
                     <h3 class="text-xl font-bold text-white mb-6">DIMAD</h3>
                     <p class="text-slate-400 mb-6">
                         실용적인 도구부터 재미있는 콘텐츠까지<br class="hidden sm:block">
-                        디지털 노마드의 자유로운 실험실입니다.
+                        자유롭고 새로운 실험실입니다.
                     </p>
                     <!-- GitHub 링크 -->
-                    <a href="https://github.com/yourid" target="_blank" rel="noopener noreferrer"
+                    <a href="/about"
                         class="text-slate-400 hover:text-white transition-colors inline-flex items-center gap-2">
                         <CodeBracketIcon class="w-6 h-6" />
-                        <span>GitHub</span>
+                        <span>About Us</span>
                     </a>
                 </div>
 
                 <!-- 서비스 섹션 (있는 카테고리만 표시) -->
-                <!-- 서비스 섹션 수정 부분 -->
                 <div class="md:col-span-5"> <!-- 고정 너비로 변경 -->
                     <div v-if="activeCategories.length > 0">
                         <h4 class="text-white font-semibold mb-6">서비스</h4>

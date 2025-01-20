@@ -35,7 +35,7 @@ const services: Service[] = [
         path: '/date-planner',
         icon: '🎯',
         isImplemented: false,
-        categoryId: 'utilities'
+        categoryId: 'lifestyle'
     },
     {
         id: 'service-4',
@@ -54,7 +54,26 @@ const services: Service[] = [
         icon: '🎨',
         isImplemented: false,
         categoryId: 'utilities'
+    },
+    {
+        id: 'service-6',
+        name: '실수령액 계산기',
+        description: '월급에서 세금, 4대 보험 등을 제외한 실제 수령액을 계산해드립니다. 나의 월급 실수령액을 쉽게 확인해보세요!',
+        path: '/net-salary-calculator',
+        icon: '💵',
+        isImplemented: true,
+        categoryId: 'finance'
+    },
+    {
+        id: 'service-7',
+        name: '대출 계산기',
+        description: '원리금 균등 상환, 원금 균등 상환 등 다양한 방식으로 대출 상환 계획을 계산해드립니다. 나에게 적합한 대출 계획을 세워보세요!',
+        path: '/loan-calculator',
+        icon: '🏦',
+        isImplemented: false,
+        categoryId: 'finance'
     }
+
 ]
 
 export function useServices() {
