@@ -1,52 +1,56 @@
 // pages/about.vue
 <template>
-    <div class="min-h-screen">
-        <!-- Hero Section -->
-        <section class="relative py-12 sm:py-20 overflow-hidden">
+    <div class="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+        <!-- Hero Section - 모바일 여백 최적화 -->
+        <section class="relative py-16 sm:py-24 md:py-32 overflow-hidden">
             <div class="absolute inset-0 -z-10">
-                <div class="absolute inset-0 bg-gradient-to-b from-violet-50/50 to-white" />
-                <!-- Background Animation -->
+                <div class="absolute inset-0 bg-gradient-to-b from-violet-50/50 via-white/20 to-transparent"></div>
+                <!-- 모바일에서 블롭 크기 조정 -->
                 <div class="absolute inset-0">
-                    <div v-for="n in 3" :key="n"
-                        class="absolute w-24 h-24 sm:w-40 sm:h-40 bg-gradient-to-r from-violet-300/20 to-indigo-300/20 rounded-full blur-2xl sm:blur-3xl animate-blob"
+                    <div v-for="n in 4" :key="n"
+                        class="absolute w-48 sm:w-72 aspect-square bg-gradient-to-r from-violet-300/20 to-indigo-300/20 rounded-full blur-2xl sm:blur-3xl animate-blob"
                         :style="{
                             'animation-delay': `${n * 2}s`,
-                            left: `${n * 25}%`,
-                            top: `${n * 15}%`
+                            left: `${(n * 30) - 20}%`,
+                            top: `${(n * 20) - 20}%`
                         }" />
                 </div>
             </div>
 
             <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <!-- Intro Card -->
+                <div class="max-w-5xl mx-auto">
+                    <!-- 인트로 카드 - 모바일 패딩 조정 -->
                     <div
-                        class="relative bg-white/70 backdrop-blur-xl rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 shadow-lg border border-white/20">
-                        <div class="absolute -top-4 sm:-top-6 left-1/2 transform -translate-x-1/2">
+                        class="relative bg-white/60 backdrop-blur-xl rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 shadow-lg">
+                        <div class="absolute -top-5 left-1/2 transform -translate-x-1/2">
                             <span
-                                class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-sm font-medium bg-violet-600 text-white shadow-lg">
-                                <BeakerIcon class="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                                class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg">
+                                <BeakerIcon class="w-3.5 sm:w-4 h-3.5 sm:h-4 mr-1.5 sm:mr-2" />
                                 DIMAD's Playground
                             </span>
                         </div>
 
-                        <div class="text-center mb-6 sm:mb-8">
+                        <div class="text-center">
+                            <!-- 모바일 텍스트 크기 최적화 -->
                             <h1
-                                class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
+                                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 sm:mb-8 leading-tight">
                                 일상과 재미를 더하는
                                 <br class="hidden sm:block" />
-                                <span class="relative">
+                                <span class="relative inline-block mt-2">
                                     <span
-                                        class="relative z-10 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                                        class="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
                                         창의와 도전의 무대
                                     </span>
                                 </span>
                             </h1>
-                            <p class="text-base sm:text-lg text-slate-600 leading-relaxed px-2 sm:px-0">
+                            <p class="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed">
                                 <strong>DIMAD</strong>는 간단한 계산기, 세금·대출 안내, 퀴즈·테스트, 웹 게임 등
-                                다양한 온라인 서비스를 한곳에 모아 선보이는 아이디어 랩입니다.
-                                일상의 <strong>편의</strong>를 높이고, <strong>재미</strong>를 더하여
-                                <strong>새로운 경험</strong>을 만들어가는 것이 DIMAD의 목표입니다.
+                                다양한 온라인 서비스를 한곳에 모아 선보이는 디지털 공간간입니다.
+                                <span class="block mt-2">
+                                    일상의 <strong class="text-violet-600">편의</strong>를 높이고,
+                                    <strong class="text-indigo-600">재미</strong>를 더하여
+                                    <strong>새로운 경험</strong>을 만들어가는 것이 DIMAD의 목표입니다.
+                                </span>
                             </p>
                         </div>
                     </div>
@@ -54,33 +58,39 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- About Section - 모바일 여백 조정 -->
         <section class="py-12 sm:py-20">
             <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto space-y-12 sm:space-y-16">
+                <div class="max-w-4xl mx-auto space-y-12 sm:space-y-20">
                     <!-- Vision -->
-                    <div class="text-center px-2 sm:px-0">
+                    <div class="text-center px-4 sm:px-0">
+                        <span class="inline-block text-xs sm:text-sm font-medium text-violet-600 mb-3 sm:mb-4">Our
+                            Vision</span>
                         <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 sm:mb-6">About DIMAD</h2>
                         <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
                             'DIMAD'라는 이름은 <em>Digital Nomad</em>에서 영감을 얻었지만,
                             특정 콘셉트에 얽매이지 않고
-                            <strong>자유롭게 새로운 온라인 서비스를 실험</strong>하고 있습니다.
-                            일상을 편리하게 하는 <strong>실용적 도구</strong>부터
-                            호기심을 자극하는 <strong>재미 요소</strong>까지,
-                            <strong>누구나 간편히</strong> 접할 수 있도록 확장해나가는 게 목표입니다.
+                            <strong class="text-violet-600">자유롭게 새로운 온라인 서비스를 실험</strong>하고 있습니다.
+                            <span class="block mt-2">
+                                일상을 편리하게 하는 <strong class="text-indigo-600">실용적 도구</strong>부터
+                                호기심을 자극하는 <strong>재미 요소</strong>까지,
+                                <strong>누구나 간편히</strong> 접할 수 있도록 확장해나가는 게 목표입니다.
+                            </span>
                         </p>
                     </div>
 
-                    <!-- Categories -->
-                    <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
+                    <!-- Categories - 모바일 그리드 최적화 -->
+                    <div class="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
                         <div v-for="category in categories" :key="category.id"
-                            class="group relative bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+                            class="group bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-500">
                             <div class="flex items-start gap-3 sm:gap-4">
-                                <div class="flex-shrink-0">
-                                    <component :is="category.icon" class="w-6 h-6 sm:w-8 sm:h-8 text-violet-500" />
+                                <div
+                                    class="flex-shrink-0 p-2.5 sm:p-3 bg-violet-50 rounded-lg sm:rounded-xl group-hover:bg-violet-100 transition-colors duration-500">
+                                    <component :is="category.icon" class="w-6 h-6 sm:w-8 sm:h-8 text-violet-600" />
                                 </div>
                                 <div>
-                                    <h3 class="text-lg sm:text-xl font-semibold text-slate-900 mb-2">
+                                    <h3
+                                        class="text-lg sm:text-xl font-semibold text-slate-900 mb-2 sm:mb-3 group-hover:text-violet-600 transition-colors duration-500">
                                         {{ category.name }}
                                     </h3>
                                     <p class="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4">
@@ -88,7 +98,7 @@
                                     </p>
                                     <div class="flex flex-wrap gap-1.5 sm:gap-2">
                                         <span v-for="sub in category.subCategories" :key="sub"
-                                            class="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm bg-slate-100 text-slate-600">
+                                            class="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm bg-slate-100 text-slate-600 group-hover:bg-violet-50 group-hover:text-violet-600 transition-colors duration-500">
                                             {{ sub }}
                                         </span>
                                     </div>
@@ -97,29 +107,46 @@
                         </div>
                     </div>
 
-                    <!-- Journey -->
-                    <div class="space-y-6 sm:space-y-8">
-                        <div class="text-center px-2 sm:px-0">
-                            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 sm:mb-6">Journey</h2>
+                    <!-- Journey - 모바일 타임라인 최적화 -->
+                    <div class="space-y-8 sm:space-y-10">
+                        <div class="text-center px-4 sm:px-0">
+                            <span class="inline-block text-xs sm:text-sm font-medium text-violet-600 mb-3 sm:mb-4">Our
+                                Journey</span>
+                            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 sm:mb-6">여정</h2>
                             <p class="text-base sm:text-lg text-slate-600">
                                 끊임없이 실험과 시도를 거듭하며,
                                 더 나은 서비스를 만들어가는 과정입니다.
                             </p>
                         </div>
 
-                        <div class="relative border-l-2 border-violet-200 ml-2 sm:ml-4 space-y-6 sm:space-y-8">
-                            <div v-for="(phase, index) in journey" :key="index" class="relative pl-6 sm:pl-8">
-                                <div
-                                    class="absolute -left-[33px] sm:-left-[41px] w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-violet-100 flex items-center justify-center">
-                                    <component :is="phase.icon" class="w-3 h-3 sm:w-4 sm:h-4 text-violet-600" />
-                                </div>
-                                <div class="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-sm">
-                                    <h3 class="text-base sm:text-lg font-medium text-slate-900 mb-2">
-                                        {{ phase.title }}
-                                    </h3>
-                                    <p class="text-sm sm:text-base text-slate-600">
-                                        {{ phase.description }}
-                                    </p>
+                        <!-- 모바일 최적화된 타임라인 -->
+                        <div class="relative">
+                            <div
+                                class="absolute left-4 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-violet-200 via-violet-300 to-indigo-300">
+                            </div>
+
+                            <div class="space-y-8 sm:space-y-12">
+                                <div v-for="(phase, index) in journey" :key="index"
+                                    class="relative flex flex-col md:flex-row gap-6 sm:gap-8 md:even:flex-row-reverse">
+                                    <!-- 아이콘 -->
+                                    <div class="relative z-10 ml-4 sm:ml-8 md:ml-0 flex-shrink-0">
+                                        <div
+                                            class="w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center rounded-full bg-white shadow-lg border-4 border-violet-100">
+                                            <component :is="phase.icon" class="w-5 sm:w-6 h-5 sm:h-6 text-violet-600" />
+                                        </div>
+                                    </div>
+                                    <!-- 컨텐츠 -->
+                                    <div class="ml-4 sm:ml-8 md:ml-0 flex-1 md:max-w-[calc(50%-48px)]">
+                                        <div
+                                            class="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-shadow duration-500">
+                                            <h3 class="text-lg sm:text-xl font-semibold text-slate-900 mb-2 sm:mb-3">
+                                                {{ phase.title }}
+                                            </h3>
+                                            <p class="text-sm sm:text-base text-slate-600">
+                                                {{ phase.description }}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -128,23 +155,25 @@
             </div>
         </section>
 
-        <!-- Collaboration Section -->
-        <section class="py-12 sm:py-20 bg-slate-600 text-white">
+        <!-- Collaboration Section - 모바일 패딩 최적화 -->
+        <section class="py-16 sm:py-24 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">함께 만들어가요</h2>
-                    <p class="text-slate-300 mb-6 sm:mb-8 px-2 sm:px-0">
+                    <span class="inline-block text-xs sm:text-sm font-medium text-violet-300 mb-3 sm:mb-4">Join
+                        Us</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">함께 만들어가요</h2>
+                    <p class="text-base sm:text-lg text-slate-300 mb-8 sm:mb-10">
                         DIMAD는 계속해서 새로운 아이디어와 피드백을 통해 발전합니다.
-                        <strong>사용자가 느끼는 불편함</strong>이나
-                        <strong>새로운 협업 제안</strong>이 있다면 언제든지 환영합니다.
+                        <span class="block mt-2">
+                            <strong class="text-white">사용자가 느끼는 불편함</strong>이나
+                            <strong class="text-white">새로운 협업 제안</strong>이 있다면 언제든지 환영합니다.
+                        </span>
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                        <a href="mailto:contact@dimad.com"
-                            class="inline-flex items-center px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white text-slate-900 hover:bg-slate-100 transition-colors text-sm sm:text-base">
-                            <EnvelopeIcon class="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" />
-                            이메일로 제안하기
-                        </a>
-                    </div>
+                    <a href="mailto:contact@dimad.com"
+                        class="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300">
+                        <EnvelopeIcon class="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                        이메일로 제안하기
+                    </a>
                 </div>
             </div>
         </section>

@@ -1,51 +1,108 @@
+<!-- components/home/HeroSection.vue -->
 <template>
-    <section class="relative overflow-hidden">
-        <!-- 배경 애니메이션 효과 -->
+    <section class="relative overflow-hidden min-h-screen flex items-center">
+        <!-- 인터랙티브 배경 효과 -->
         <div class="absolute inset-0 -z-10">
-            <div class="absolute inset-0 bg-grid-slate-900/[0.04] bg-[size:20px_20px] animate-pulse-slow"></div>
-            <!-- 그라데이션 오버레이 -->
-            <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+            <!-- 동적 그리드 패턴 -->
+            <div class="absolute inset-0 bg-grid-slate-900/[0.04] bg-[size:20px_20px]"></div>
+
+            <!-- 애니메이션 원형 그라데이션 -->
+            <div
+                class="absolute top-0 -left-1/4 w-1/2 aspect-square rounded-full bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 blur-3xl animate-blob">
+            </div>
+            <div
+                class="absolute bottom-0 -right-1/4 w-1/2 aspect-square rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-3xl animate-blob animation-delay-2000">
+            </div>
+
+            <!-- 오버레이 -->
+            <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/80 backdrop-blur-[2px]">
+            </div>
         </div>
 
-        <div class="container mx-auto px-4 pt-32 pb-24 md:pt-40 md:pb-32">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="inline-block mb-4">
-                    <span
-                        class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-violet-50 to-indigo-50 text-violet-800 border border-violet-100">
-                        <SparklesIcon class="w-4 h-4 mr-2" />
-                        DIMAD의 상상 놀이터
-                    </span>
+        <div class="container mx-auto px-4 py-20 md:py-32">
+            <div class="max-w-5xl mx-auto">
+                <!-- 상단 뱃지 -->
+                <div class="perspective-1000">
+                    <div class="inline-block mb-6 animate-float">
+                        <span
+                            class="inline-flex items-center px-4 py-2 rounded-full text-xs xl:text-sm font-medium bg-gradient-to-r from-violet-500/10 to-indigo-500/10 text-violet-700 border border-violet-200/50 shadow-lg shadow-violet-500/5">
+                            <SparklesIcon class="w-4 h-4 mr-2 animate-pulse" />
+                            DIMAD's Creative Lab
+                        </span>
+                    </div>
                 </div>
 
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6">
-                    창의적인 아이디어로
-                    <span
-                        class="inline-block bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                        일상의 가치를 확장
+                <!-- 메인 헤드라인 -->
+                <h1 class="text-4xl md:text-7xl xl:text-8xl font-bold text-slate-900 mb-8 leading-tight tracking-tight">
+                    <span class="relative inline-block mb-2">
+                        창의적인 아이디어로
+                        <div
+                            class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 to-indigo-500 transform scale-x-0 animate-expand-line">
+                        </div>
+                    </span>
+                    <br />
+                    <span class="relative">
+                        <span
+                            class="inline-block bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">일상의
+                            가치</span>를
+                        <span class="relative inline-block">
+                            확장
+                            <svg class="absolute -bottom-1 left-0 w-full" height="8" viewBox="0 0 100 8"
+                                preserveAspectRatio="none">
+                                <path d="M0,0 C50,8 50,8 100,0" stroke="url(#gradient)" stroke-width="2" fill="none" />
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color: rgb(124, 58, 237)" />
+                                        <stop offset="100%" style="stop-color: rgb(79, 70, 229)" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </span>
                     </span>
                 </h1>
 
-                <p class="text-lg md:text-xl text-slate-600 mb-12">
-                    간단한 계산기부터 퀴즈·테스트까지,<br class="hidden sm:block">
-                    <strong>유용한 도구</strong>와 <strong>즐거운 콘텐츠</strong>를 실험하는 창의적인 공간입니다.
-                    <br class="hidden sm:block">
-                    <strong>일상의 편의</strong>를 높이고 <strong>재미</strong>를 더하기 위해,
-                    <br class="hidden sm:block">
-                    <span class="text-violet-600 font-medium">DIMAD</span>는 끊임없이 새로운 아이디어를 시도하고 있습니다.
+                <!-- 서브 텍스트 -->
+                <p class="text-m md:text-2xl text-slate-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+                    <span class="block mb-4 transition-all hover:text-slate-900">
+                        간단한 계산기부터 퀴즈·테스트까지,
+                        <br>
+                        <strong class="text-violet-600">유용한 도구</strong>와
+                        <strong class="text-indigo-600">즐거운 콘텐츠</strong>를 실험합니다.
+                    </span>
+                    <span class="block transition-all hover:text-slate-900">
+                        당신의 <strong class="text-violet-600">일상</strong>에
+                        <strong class="text-indigo-600">영감</strong>을 불어넣는
+                        <span class="font-semibold">디지털 실험실</span>입니다.
+                    </span>
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <!-- CTA 버튼 -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
                     <NuxtLink to="/explore"
-                        class="group px-8 py-4 bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-all flex items-center justify-center">
-                        <MapIcon class="w-5 h-5 mr-2" />
-                        서비스 둘러보기
-                        <ArrowRightIcon class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                        class="group relative px-8 py-4 bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-all flex items-center justify-center overflow-hidden shadow-xl shadow-slate-900/10 hover:shadow-slate-900/20">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-violet-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <span class="relative flex items-center">
+                            <MapIcon class="w-5 h-5 mr-2" />
+                            서비스 둘러보기
+                            <ArrowRightIcon
+                                class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                        </span>
                     </NuxtLink>
                     <NuxtLink to="/about"
-                        class="px-8 py-4 bg-white text-slate-600 rounded-full border hover:border-slate-300 transition-all flex items-center justify-center">
+                        class="group px-8 py-4 bg-white/80 backdrop-blur-sm text-slate-600 rounded-full border border-slate-200 hover:bg-white hover:border-slate-300 hover:text-slate-900 transition-all flex items-center justify-center shadow-lg shadow-slate-900/5 hover:shadow-slate-900/10">
                         <UserIcon class="w-5 h-5 mr-2" />
                         DIMAD 소개
                     </NuxtLink>
+                </div>
+
+                <!-- 스크롤 인디케이터 -->
+                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+                    <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -56,20 +113,67 @@
 import { SparklesIcon, MapIcon, ArrowRightIcon, UserIcon } from '@heroicons/vue/24/outline'
 </script>
 
-<style>
-.animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+<style scoped>
+.perspective-1000 {
+    perspective: 1000px;
 }
 
-@keyframes pulse {
+@keyframes float {
 
     0%,
     100% {
-        opacity: .1;
+        transform: translateY(0) rotateX(0);
     }
 
     50% {
-        opacity: .2;
+        transform: translateY(-10px) rotateX(5deg);
     }
+}
+
+@keyframes blob {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(20px, -20px) scale(1.1);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    75% {
+        transform: translate(20px, 20px) scale(1.05);
+    }
+}
+
+@keyframes expand-line {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-blob {
+    animation: blob 10s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animate-expand-line {
+    animation: expand-line 1s ease-out forwards;
+    animation-delay: 0.5s;
 }
 </style>

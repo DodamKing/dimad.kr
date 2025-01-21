@@ -211,7 +211,7 @@
                                 </div>
                                 <div>
                                     <h2 class="text-lg font-semibold text-slate-900 mb-2">
-                                        2024년 기준 세금 계산 방법
+                                        2025년 기준 세금 계산 방법
                                     </h2>
                                     <div class="text-sm text-slate-600 space-y-2">
                                         <p>
