@@ -18,6 +18,11 @@ export function useNavigation() {
             isImplemented: true
         },
         {
+            name: '소개',
+            path: '/about',
+            isImplemented: true
+        },
+        {
             name: '고객지원',
             path: '/support',
             isImplemented: false

@@ -1,6 +1,6 @@
 <!-- components/home/LatestProjects.vue -->
 <template>
-    <section class="py-24 md:py-32 relative overflow-hidden">
+    <section class="pt-12 pb-24 md:pt-16 md:pb-32 relative overflow-hidden">
         <!-- 배경 효과 -->
         <div class="absolute inset-0 bg-slate-50/50 -z-10">
             <div

@@ -1,12 +1,30 @@
 <!-- pages/net-salary-calculator.vue -->
 <template>
-    <div>
-        <section class="py-8 sm:py-12">
+    <div class="min-h-screen relative isolate bg-gradient-to-b from-violet-50 to-slate-50">
+        <!-- 배경 디자인 -->
+        <div class="absolute inset-0 -z-10 pointer-events-none">
+            <!-- 그리드 패턴 -->
+            <div class="absolute inset-0" style="background-image: linear-gradient(rgb(148 163 184 / 0.05) 1px, transparent 1px), linear-gradient(to right, rgb(148 163 184 / 0.05) 1px, transparent 1px); 
+                background-size: 32px 32px;">
+            </div>
+
+            <!-- 그라데이션 장식 -->
+            <div class="absolute right-0 top-0 w-1/3 aspect-square rounded-full bg-violet-100/20 blur-3xl"></div>
+            <div class="absolute left-0 bottom-0 w-1/3 aspect-square rounded-full bg-indigo-100/20 blur-3xl"></div>
+        </div>
+
+        <section class="relative py-8 sm:py-12">
             <div class="container mx-auto px-4">
-                <div class="max-w-3xl mx-auto text-center mb-8">
+                <div class="max-w-3xl mx-auto text-center mb-8 relative">
+                    <div class="inline-flex mb-4">
+                        <span
+                            class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-violet-50 text-violet-700 border border-violet-100/50 shadow-sm">
+                            <CalculatorIcon class="w-3.5 h-3.5 mr-1.5" />
+                            2025년 기준
+                        </span>
+                    </div>
                     <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                         급여 실수령액 계산기
-                        <span class="text-violet-600 block sm:inline">(2025년 기준)</span>
                     </h1>
                     <p class="text-slate-600 text-base sm:text-lg">
                         연봉 또는 월급 기준으로 실제 수령하게 될
@@ -17,7 +35,9 @@
                     <div class="grid gap-8 lg:grid-cols-5">
                         <!-- 입력 폼 섹션 -->
                         <div class="lg:col-span-3">
-                            <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8">
+                            <div
+                                class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-slate-200/60 p-6 sm:p-8 relative overflow-hidden">
+                                <div class="absolute inset-0 bg-grid-slate-100 opacity-[0.2]"></div>
                                 <h2 class="text-xl font-bold text-slate-900 mb-6">급여 정보 입력</h2>
 
                                 <div class="space-y-8">
@@ -134,7 +154,7 @@
                             <div v-if="showResult" class="space-y-6">
                                 <!-- 실수령액 카드 -->
                                 <div
-                                    class="bg-gradient-to-br from-violet-50 to-indigo-50 rounded-2xl p-6 sm:p-8 border border-violet-100">
+                                    class="bg-gradient-to-br from-violet-50 to-indigo-50 rounded-2xl p-6 sm:p-8 border border-violet-100/50 backdrop-blur-sm relative overflow-hidden">
                                     <div class="text-center">
                                         <h3 class="text-lg font-semibold text-violet-900 mb-2">예상 실수령액</h3>
                                         <div class="text-3xl font-bold text-violet-700 mb-1">
@@ -469,6 +489,12 @@ const calculateSalary = () => {
 input[type="text"] {
     font-feature-settings: "tnum";
     font-variant-numeric: tabular-nums;
+}
+
+.pattern-grid {
+    background-size: 32px 32px;
+    background-image: linear-gradient(to right, rgb(148 163 184 / 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(148 163 184 / 0.05) 1px, transparent 1px);
 }
 
 /* 모바일에서 더 큰 폰트 사이즈 */

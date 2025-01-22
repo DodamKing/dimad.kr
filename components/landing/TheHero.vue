@@ -1,25 +1,27 @@
 <!-- components/home/HeroSection.vue -->
 <template>
-    <section class="relative overflow-hidden min-h-screen flex items-center">
+    <section class="relative overflow-hidden flex items-center">
         <!-- 인터랙티브 배경 효과 -->
         <div class="absolute inset-0 -z-10">
             <!-- 동적 그리드 패턴 -->
-            <div class="absolute inset-0 bg-grid-slate-900/[0.04] bg-[size:20px_20px]"></div>
+            <div
+                class="absolute inset-0 bg-slate-900/[0.04] bg-[size:20px_20px] grid grid-cols-[20px] grid-rows-[20px]">
+            </div>
 
             <!-- 애니메이션 원형 그라데이션 -->
             <div
-                class="absolute top-0 -left-1/4 w-1/2 aspect-square rounded-full bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 blur-3xl animate-blob">
+                class="absolute top-0 -left-1/4 w-1/2 aspect-square rounded-full bg-gradient-to-r from-violet-500/40 to-fuchsia-500/40 blur-3xl animate-blob">
             </div>
             <div
                 class="absolute bottom-0 -right-1/4 w-1/2 aspect-square rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-3xl animate-blob animation-delay-2000">
             </div>
 
             <!-- 오버레이 -->
-            <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/80 backdrop-blur-[2px]">
+            <div class="absolute inset-0 bg-gradient-to-b from-white/60 via-white/30 to-white/60 backdrop-blur-[2px]">
             </div>
         </div>
 
-        <div class="container mx-auto px-4 py-20 md:py-32">
+        <div class="container mx-auto px-4 py-12 sm:py-16 md:py-24 lg:py-32">
             <div class="max-w-5xl mx-auto">
                 <!-- 상단 뱃지 -->
                 <div class="perspective-1000">
@@ -33,7 +35,8 @@
                 </div>
 
                 <!-- 메인 헤드라인 -->
-                <h1 class="text-4xl md:text-7xl xl:text-8xl font-bold text-slate-900 mb-8 leading-tight tracking-tight">
+                <h1
+                    class="text-3xl sm:text-4xl md:text-7xl xl:text-8xl font-bold text-slate-900 mb-8 leading-tight tracking-tight">
                     <span class="relative inline-block mb-2">
                         창의적인 아이디어로
                         <div
@@ -95,14 +98,6 @@
                         <UserIcon class="w-5 h-5 mr-2" />
                         DIMAD 소개
                     </NuxtLink>
-                </div>
-
-                <!-- 스크롤 인디케이터 -->
-                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-                    <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                    </svg>
                 </div>
             </div>
         </div>

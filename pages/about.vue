@@ -1,6 +1,44 @@
 // pages/about.vue
 <template>
-    <div class="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div class="min-h-screen">
+        <!-- 배경 효과 -->
+        <div class="fixed inset-0 -z-10">
+            <!-- 베이스 그라데이션 -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-50/80 to-white/60"></div>
+
+            <!-- 그리드 패턴 -->
+            <div class="absolute inset-0" style="background-image: linear-gradient(rgb(15 23 42 / 0.07) 1px, transparent 1px), linear-gradient(to right, rgb(15 23 42 / 0.07) 1px, transparent 1px); 
+            background-size: 40px 40px;">
+            </div>
+
+            <!-- 블롭 효과 개선 -->
+            <div v-for="n in 5" :key="n" class="absolute aspect-square rounded-full mix-blend-multiply animate-blob"
+                :class="[
+                    // PC 화면
+                    'hidden sm:block',
+                    n === 1 ? 'bg-violet-200/40 w-[600px] -top-[10%] right-[10%] animation-delay-2000' : '',
+                    n === 2 ? 'bg-indigo-200/40 w-[500px] top-[60%] -left-[10%] animation-delay-4000' : '',
+                    n === 3 ? 'bg-purple-200/40 w-[550px] top-[25%] right-[20%] animation-delay-6000' : '',
+                    n === 4 ? 'bg-fuchsia-200/40 w-[700px] -bottom-[10%] right-[15%] animation-delay-8000' : '',
+                    n === 5 ? 'bg-blue-200/40 w-[650px] top-[40%] -left-[5%] animation-delay-10000' : ''
+                ]" />
+
+            <!-- 모바일용 블롭 효과 추가 -->
+            <div v-for="n in 3" :key="`mobile-${n}`"
+                class="absolute aspect-square rounded-full mix-blend-multiply animate-blob sm:hidden" :class="[
+                    // 모바일 화면
+                    n === 1 ? 'bg-violet-200/40 w-[300px] -top-[5%] right-[5%] animation-delay-2000' : '',
+                    n === 2 ? 'bg-indigo-200/40 w-[350px] top-[40%] -left-[20%] animation-delay-4000' : '',
+                    n === 3 ? 'bg-purple-200/40 w-[320px] bottom-[10%] right-[0%] animation-delay-6000' : ''
+                ]" />
+
+            <!-- 미묘한 노이즈 텍스처 -->
+            <div class="absolute inset-0 bg-noise opacity-[0.15]"></div>
+
+            <!-- 전체 오버레이 -->
+            <div class="absolute inset-0 backdrop-blur-[1px]"></div>
+        </div>
+
         <!-- Hero Section - 모바일 여백 최적화 -->
         <section class="relative py-16 sm:py-24 md:py-32 overflow-hidden">
             <div class="absolute inset-0 -z-10">
@@ -45,7 +83,7 @@
                             </h1>
                             <p class="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed">
                                 <strong>DIMAD</strong>는 간단한 계산기, 세금·대출 안내, 퀴즈·테스트, 웹 게임 등
-                                다양한 온라인 서비스를 한곳에 모아 선보이는 디지털 공간간입니다.
+                                다양한 온라인 서비스를 한곳에 모아 선보이는 디지털 공간입니다.
                                 <span class="block mt-2">
                                     일상의 <strong class="text-violet-600">편의</strong>를 높이고,
                                     <strong class="text-indigo-600">재미</strong>를 더하여
@@ -220,21 +258,29 @@ const journey = [
     animation: blob 7s infinite;
 }
 
+.bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+}
+
+.animation-delay-10000 {
+    animation-delay: 10s;
+}
+
 @keyframes blob {
-    0% {
-        transform: translate(0px, 0px) scale(1);
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
     }
 
     33% {
-        transform: translate(20px, -30px) scale(1.1);
+        transform: translate(50px, -50px) scale(1.1) rotate(5deg);
     }
 
     66% {
-        transform: translate(-15px, 15px) scale(0.9);
-    }
-
-    100% {
-        transform: translate(0px, 0px) scale(1);
+        transform: translate(-30px, 30px) scale(0.9) rotate(-5deg);
     }
 }
 

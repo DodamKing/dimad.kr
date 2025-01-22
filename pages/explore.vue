@@ -2,20 +2,27 @@
 <template>
     <section class="py-16 md:py-24 relative overflow-hidden">
         <!-- 배경 효과 -->
-        <div class="absolute inset-0 -z-10">
-            <div class="absolute inset-0 bg-grid-slate-900/[0.02] bg-[size:16px_16px] sm:bg-[size:20px_20px]"></div>
-            <!-- 동적 그라디언트 블롭 -->
-            <div v-for="n in 3" :key="n"
-                class="absolute w-48 sm:w-72 md:w-96 aspect-square rounded-full blur-2xl sm:blur-3xl animate-blob opacity-30"
-                :class="[
-                    n === 1 ? 'bg-violet-100 top-0 right-0 animation-delay-2000' : '',
-                    n === 2 ? 'bg-indigo-100 bottom-0 left-0 animation-delay-4000' : '',
-                    n === 3 ? 'bg-purple-100 top-1/2 left-1/3 animation-delay-6000' : ''
-                ]"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/80 backdrop-blur-sm">
+        <div class="fixed top-[116px] left-0 right-0 bottom-0 -z-20">
+            <!-- 그리드 패턴 -->
+            <div class="absolute inset-0" style="background-image: linear-gradient(rgb(15 23 42 / 0.07) 1px, transparent 1px), linear-gradient(to right, rgb(15 23 42 / 0.07) 1px, transparent 1px); 
+        background-size: 40px 40px;">
+            </div>
+
+            <!-- 동적 블롭 효과 -->
+            <div v-for="n in 4" :key="n"
+                class="absolute aspect-square rounded-full mix-blend-multiply blur-2xl animate-blob" :class="[
+                    n === 1 ? 'bg-violet-300/50 w-[500px] top-0 right-[15%] animation-delay-2000' : '',
+                    n === 2 ? 'bg-indigo-300/50 w-[600px] bottom-0 left-[20%] animation-delay-4000' : '',
+                    n === 3 ? 'bg-fuchsia-300/50 w-[450px] bottom-[30%] right-[25%] animation-delay-6000' : '',
+                    n === 4 ? 'bg-purple-300/50 w-[700px] top-[20%] left-[10%] animation-delay-8000' : ''
+                ]">
+            </div>
+
+            <!-- 오버레이 - 투명도 낮춤 -->
+            <div class="absolute inset-0 backdrop-blur-[1px]">
+                <div class="absolute inset-0 bg-gradient-to-b from-white/60 to-white/20"></div>
             </div>
         </div>
-
         <div class="container mx-auto px-4">
             <!-- 헤더 섹션 -->
             <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
@@ -34,7 +41,8 @@
             </div>
 
             <!-- 카테고리 탭 -->
-            <div class="fixed top-20 left-0 right-0 bg-white/80 backdrop-blur-sm z-30 ">
+            <div
+                class="fixed top-20 left-0 right-0 bg-gradient-to-b from-white via-white/95 to-white/80 backdrop-blur z-30 border-b border-slate-200/80 shadow-sm">
                 <div class="container mx-auto px-4">
                     <div class="overflow-x-auto scrollbar-hide py-2">
                         <div class="flex gap-2 min-w-max">
@@ -44,7 +52,7 @@
                                 :class="[
                                     activeCategoryId === category.id
                                         ? 'bg-violet-600 text-white shadow-md'
-                                        : 'bg-white text-slate-600 border border-slate-200 hover:border-violet-200'
+                                        : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-violet-50 hover:text-violet-600 hover:border-violet-200'
                                 ]">
                                 <component :is="category.icon" class="w-4 h-4" />
                                 {{ category.name }}
@@ -81,7 +89,7 @@
                                 <div v-for="service in getServicesByCategory(category.id)" :key="service.id"
                                     class="w-[280px] flex-shrink-0">
                                     <div
-                                        class="group h-full bg-white rounded-xl border border-slate-100 hover:border-violet-200 p-5 shadow-sm hover:shadow-md transition-all duration-300">
+                                        class="group h-full bg-white rounded-2xl p-6 border border-slate-100 hover:border-violet-200 shadow-sm hover:shadow-md transition-all duration-300">
                                         <!-- 서비스 상태 뱃지 -->
                                         <div class="relative mb-5"> <!-- 컨테이너 추가 -->
                                             <!-- 서비스 아이콘 -->
@@ -321,18 +329,22 @@ const getServicesByCategory = (categoryId: string) => {
     0%,
     100% {
         transform: translate(0, 0) scale(1);
-        opacity: 0.3;
+        opacity: 0.4;
     }
 
     33% {
-        transform: translate(30px, -30px) scale(1.2);
-        opacity: 0.2;
+        transform: translate(40px, -40px) scale(1.1);
+        opacity: 0.3;
     }
 
     66% {
-        transform: translate(-20px, 20px) scale(0.8);
-        opacity: 0.4;
+        transform: translate(-40px, 40px) scale(0.9);
+        opacity: 0.5;
     }
+}
+
+.animation-delay-8000 {
+    animation-delay: 8s;
 }
 
 @keyframes bounce-x {
