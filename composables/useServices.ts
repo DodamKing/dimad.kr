@@ -66,11 +66,11 @@ const services: Service[] = [
     },
     {
         id: 'service-7',
-        name: '대출 계산기',
-        description: '원리금 균등 상환, 원금 균등 상환 등 다양한 방식으로 대출 상환 계획을 계산해드립니다. 나에게 적합한 대출 계획을 세워보세요!',
-        path: '/loan-calculator',
-        icon: '🏦',
-        isImplemented: false,
+        name: '대출 상환 플래너',
+        description: '원리금균등? 원금균등? 헷갈리는 대출 상환 방식을 비교하고 나에게 맞는 상환 계획을 세워보세요. 총 이자와 월 상환금액을 한눈에 확인할 수 있습니다.',
+        path: '/loan/repayment-planner',
+        icon: '📊',
+        isImplemented: true,
         categoryId: 'finance'
     }
 

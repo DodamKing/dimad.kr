@@ -31,7 +31,7 @@ export default defineNuxtConfig({
   ],
 
   build: {
-    transpile: ['fabric']
+    transpile: ['fabric', 'recharts']
   },
 
   runtimeConfig: {
@@ -40,5 +40,7 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "vercel"
-  }
+  },
+
+  css: ['vue-toastification/dist/index.css']
 })
