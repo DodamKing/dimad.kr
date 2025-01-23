@@ -26,78 +26,40 @@
                 <p class="xl:text-lg text-slate-600">디지털 노마드의 실험실에서 탄생한 신선한 아이디어를 만나보세요</p>
             </div>
 
-            <!-- 서비스 목록 -->
-            <div class="relative">
-                <!-- 모바일: 스크롤 가능한 목록 -->
-                <div class="md:hidden overflow-x-auto pb-6 -mx-4 px-4 scrollbar-hide">
-                    <div class="flex space-x-5">
-                        <div v-for="service in previewServices" :key="service.id" class="w-[300px] flex-shrink-0">
-                            <div
-                                class="group h-full bg-white rounded-2xl p-6 border border-slate-100 hover:border-violet-200 shadow-sm hover:shadow-md transition-all duration-300">
-                                <div class="flex items-start justify-between mb-6">
-                                    <div
-                                        class="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-violet-50 to-indigo-50 text-violet-600 group-hover:scale-110 transition-transform duration-300">
-                                        {{ service.icon }}
-                                    </div>
-                                    <span
-                                        class="text-xs font-medium text-violet-600 bg-violet-50 px-2.5 py-1 rounded-full">New</span>
-                                </div>
-
-                                <h3
-                                    class="text-xl font-semibold text-slate-900 mb-3 group-hover:text-violet-600 transition-colors">
-                                    {{ service.name }}
-                                </h3>
-
-                                <p class="text-slate-600 mb-6 line-clamp-3">
-                                    {{ service.description }}
-                                </p>
-
-                                <NuxtLink :to="service.isImplemented ? service.path : '/coming-soon'"
-                                    class="inline-flex items-center text-sm font-medium text-violet-600 hover:text-violet-700 transition-colors">
-                                    자세히 보기
-                                    <ArrowRightIcon
-                                        class="w-4 h-4 ml-1 group-hover:translate-x-1.5 transition-transform duration-300" />
-                                </NuxtLink>
-                            </div>
-                        </div>
+            <!-- 서비스 목록 - 모바일/데스크톱 통합 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div v-for="service in previewServices" :key="service.id" class="group">
+                    <!-- 호버 시 배경 효과 -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-violet-100/0 to-indigo-100/0 rounded-2xl group-hover:from-violet-100/50 group-hover:to-indigo-100/50 -z-10 transition-colors duration-300">
                     </div>
-                </div>
 
-                <!-- 데스크톱: 그리드 -->
-                <div class="hidden md:grid md:grid-cols-3 gap-8">
-                    <div v-for="service in previewServices" :key="service.id" class="group relative">
-                        <!-- 호버 시 배경 효과 -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-violet-100/0 to-indigo-100/0 rounded-2xl group-hover:from-violet-100/50 group-hover:to-indigo-100/50 -z-10 transition-colors duration-300">
-                        </div>
-
-                        <div
-                            class="h-full bg-white rounded-2xl p-8 border border-slate-100 group-hover:border-violet-200 shadow-sm hover:shadow-md transition-all duration-300">
-                            <div class="flex items-start justify-between mb-6">
-                                <div
-                                    class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-violet-50 to-indigo-50 text-violet-600 group-hover:scale-110 transition-transform duration-300">
-                                    {{ service.icon }}
-                                </div>
-                                <span
-                                    class="text-xs font-medium text-violet-600 bg-violet-50 px-2.5 py-1 rounded-full">New</span>
+                    <div
+                        class="h-full bg-white rounded-2xl p-6 md:p-8 border border-slate-100 group-hover:border-violet-200 shadow-sm hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <div
+                                class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-violet-50 to-indigo-50 text-violet-600 group-hover:scale-110 transition-transform duration-300">
+                                {{ service.icon }}
                             </div>
-
-                            <h3
-                                class="text-xl font-semibold text-slate-900 mb-3 group-hover:text-violet-600 transition-colors">
-                                {{ service.name }}
-                            </h3>
-
-                            <p class="text-slate-600 mb-6 line-clamp-3">
-                                {{ service.description }}
-                            </p>
-
-                            <NuxtLink :to="service.isImplemented ? service.path : '/coming-soon'"
-                                class="inline-flex items-center text-sm font-medium text-violet-600 hover:text-violet-700 transition-colors">
-                                자세히 보기
-                                <ArrowRightIcon
-                                    class="w-4 h-4 ml-1 group-hover:translate-x-1.5 transition-transform duration-300" />
-                            </NuxtLink>
+                            <span
+                                class="text-xs font-medium text-violet-600 bg-violet-50 px-2.5 py-1 rounded-full">New</span>
                         </div>
+
+                        <h3
+                            class="text-xl font-semibold text-slate-900 mb-3 group-hover:text-violet-600 transition-colors">
+                            {{ service.name }}
+                        </h3>
+
+                        <p class="text-slate-600 mb-6 line-clamp-3">
+                            {{ service.description }}
+                        </p>
+
+                        <NuxtLink :to="service.isImplemented ? service.path : '/coming-soon'"
+                            class="inline-flex items-center text-sm font-medium text-violet-600 hover:text-violet-700 transition-colors">
+                            자세히 보기
+                            <ArrowRightIcon
+                                class="w-4 h-4 ml-1 group-hover:translate-x-1.5 transition-transform duration-300" />
+                        </NuxtLink>
                     </div>
                 </div>
             </div>
@@ -126,14 +88,3 @@ const previewServices = computed(() => {
         .slice(0, 3)
 })
 </script>
-
-<style scoped>
-.scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-</style>
