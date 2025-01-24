@@ -66,8 +66,8 @@ const services: Service[] = [
     },
     {
         id: 'service-7',
-        name: '대출 상환 플래너',
-        description: '원리금균등? 원금균등? 헷갈리는 대출 상환 방식을 비교하고 나에게 맞는 상환 계획을 세워보세요. 총 이자와 월 상환금액을 한눈에 확인할 수 있습니다.',
+        name: '대출 상환 시뮬레이터',
+        description: '대출 상환 계획을 쉽게 계산하고 비교해보세요.',
         path: '/loan/repayment-planner',
         icon: '📊',
         isImplemented: true,

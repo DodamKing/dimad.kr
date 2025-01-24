@@ -37,7 +37,6 @@
                         <div class="lg:col-span-3">
                             <div
                                 class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-slate-200/60 p-6 sm:p-8 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-grid-slate-100 opacity-[0.2]"></div>
                                 <h2 class="text-xl font-bold text-slate-900 mb-6">급여 정보 입력</h2>
 
                                 <div class="space-y-8">
@@ -140,8 +139,8 @@
 
                                     <!-- 계산하기 버튼 -->
                                     <button @click="calculateSalary" class="w-full h-12 bg-violet-600 text-white rounded-lg hover:bg-violet-700 
-                           transition-colors font-medium shadow-sm flex items-center justify-center
-                           text-base">
+                                        transition-colors font-medium shadow-sm flex items-center justify-center
+                                        text-base">
                                         <CalculatorIcon class="w-5 h-5 mr-2" />
                                         실수령액 계산하기
                                     </button>

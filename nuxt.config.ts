@@ -30,8 +30,12 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
   ],
 
+  plugins: [
+    '~/plugins/apexcharts.client.ts',
+  ],
+
   build: {
-    transpile: ['fabric', 'recharts']
+    transpile: ['fabric', 'recharts', 'vue3-apexcharts']
   },
 
   runtimeConfig: {
