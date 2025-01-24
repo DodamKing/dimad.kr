@@ -20,7 +20,8 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
-        }
+        },
+        { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css' }
       ]
     }
   },
@@ -46,5 +47,8 @@ export default defineNuxtConfig({
     preset: "vercel"
   },
 
-  css: ['vue-toastification/dist/index.css']
+  css: [
+    'vue-toastification/dist/index.css',
+    '~/assets/css/main.css',
+  ]
 })

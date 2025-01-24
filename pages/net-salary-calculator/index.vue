@@ -327,6 +327,8 @@ useHead({
     ]
 })
 
+const { toast } = useToast()
+
 // 상태 관리
 const salaryType = ref('yearly')
 const salary = ref('')
@@ -450,7 +452,7 @@ const calculateSalary = () => {
     const monthlyTaxFree = Number(taxFree.value.replace(/[^0-9]/g, ''))
 
     if (!rawSalary) {
-        alert('급여를 입력해주세요.')
+        toast.error('급여를 입력해주세요.')
         return
     }
 

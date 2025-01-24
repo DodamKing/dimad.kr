@@ -212,7 +212,7 @@
                                                     formatNumber(payment.payment) }}원</span>
                                             </div>
 
-                                            <div class="grid grid-cols-3 gap-4 text-sm">
+                                            <div class="grid grid-cols-3 gap-4 text-xs sm:text-sm">
                                                 <div class="text-center p-2 bg-slate-50 rounded">
                                                     <div class="text-slate-500 mb-1">원금</div>
                                                     <div class="font-medium">{{ formatNumber(payment.principal) }}원
@@ -424,6 +424,9 @@ const lineChartOptions = {
         type: 'numeric',
         title: {
             text: '납입 회차'
+        },
+        labels: {
+            formatter: (value: number) => `${Math.round(value)}회`
         }
     },
     yaxis: {
