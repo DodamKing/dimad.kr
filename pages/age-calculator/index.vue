@@ -34,22 +34,20 @@
                                     생년월일
                                     <span class="text-red-500">*</span>
                                 </label>
-                                <div class="grid grid-cols-3 gap-3">
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                    <!-- 연도 입력 -->
                                     <div class="relative">
-                                        <select v-model="birthDate.year"
-                                            class="w-full h-12 pl-4 pr-10 rounded-xl border-slate-200 bg-slate-50 hover:bg-slate-100 focus:ring-2 focus:ring-violet-500 transition-colors"
-                                            required>
-                                            <option value="" disabled>년도</option>
-                                            <option v-for="year in years" :key="year" :value="year">
-                                                {{ year }}년
-                                            </option>
-                                        </select>
-                                        <ChevronDownIcon
-                                            class="w-5 h-5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                                        <input type="number" v-model="birthDate.year" placeholder="연도 (YYYY)"
+                                            class="w-full h-12 pl-4 pr-4 rounded-xl border-slate-200 bg-slate-50 hover:bg-slate-100 focus:ring-2 focus:ring-violet-500 transition-colors"
+                                            min="1900" :max="currentYear" required />
+                                        <span
+                                            class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">년</span>
                                     </div>
+
+                                    <!-- 월 선택 -->
                                     <div class="relative">
                                         <select v-model="birthDate.month"
-                                            class="w-full h-12 pl-4 pr-10 rounded-xl border-slate-200 bg-slate-50 hover:bg-slate-100 focus:ring-2 focus:ring-violet-500 transition-colors"
+                                            class="w-full h-12 pl-4 pr-10 rounded-xl border-slate-200 bg-slate-50 hover:bg-slate-100 focus:ring-2 focus:ring-violet-500 transition-colors appearance-none"
                                             required>
                                             <option value="" disabled>월</option>
                                             <option v-for="month in 12" :key="month" :value="month">
@@ -59,19 +57,20 @@
                                         <ChevronDownIcon
                                             class="w-5 h-5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                                     </div>
+
+                                    <!-- 일 입력 -->
                                     <div class="relative">
-                                        <select v-model="birthDate.day"
-                                            class="w-full h-12 pl-4 pr-10 rounded-xl border-slate-200 bg-slate-50 hover:bg-slate-100 focus:ring-2 focus:ring-violet-500 transition-colors"
-                                            required>
-                                            <option value="" disabled>일</option>
-                                            <option v-for="day in getDaysInMonth" :key="day" :value="day">
-                                                {{ day }}일
-                                            </option>
-                                        </select>
-                                        <ChevronDownIcon
-                                            class="w-5 h-5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                                        <input type="number" v-model="birthDate.day" placeholder="일"
+                                            class="w-full h-12 pl-4 pr-4 rounded-xl border-slate-200 bg-slate-50 hover:bg-slate-100 focus:ring-2 focus:ring-violet-500 transition-colors"
+                                            min="1" :max="maxDaysInMonth" required />
+                                        <span
+                                            class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">일</span>
                                     </div>
                                 </div>
+                                <!-- 유효성 검사 메시지 -->
+                                <p v-if="validationError" class="mt-2 text-sm text-red-600">
+                                    {{ validationError }}
+                                </p>
                             </div>
                         </div>
 
@@ -182,7 +181,8 @@ import { ArrowPathIcon, ChevronDownIcon, CalendarIcon } from '@heroicons/vue/24/
 const today = new Date()
 
 // 년도 범위 생성 (120년 전 ~ 현재)
-const years = Array.from({ length: 121 }, (_, i) => today.getFullYear() - 120 + i)
+const currentYear = new Date().getFullYear()
+const validationError = ref('')
 
 // 생년월일 상태
 const birthDate = ref({
@@ -205,17 +205,10 @@ const ages = ref({
     counting: 0,
 })
 
-// 선택된 월의 일수 계산
-const getDaysInMonth = computed(() => {
-    if (!birthDate.value.year || !birthDate.value.month) return Array.from({ length: 31 }, (_, i) => i + 1)
-
-    const lastDay = new Date(
-        Number(birthDate.value.year),
-        Number(birthDate.value.month),
-        0
-    ).getDate()
-
-    return Array.from({ length: lastDay }, (_, i) => i + 1)
+// 해당 월의 최대 일수 계산
+const maxDaysInMonth = computed(() => {
+    if (!birthDate.value.year || !birthDate.value.month) return 31
+    return new Date(Number(birthDate.value.year), Number(birthDate.value.month), 0).getDate()
 })
 
 // 나이 계산 함수
@@ -321,5 +314,27 @@ select {
     font-feature-settings: "tnum";
     font-variant-numeric: tabular-nums;
     appearance: none;
+}
+
+/* 모바일에서 숫자 입력 화살표 제거 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* 숫자 입력 시 고정폭 숫자 사용 */
+input[type="number"],
+select {
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+
+    input[type="number"],
+    select {
+        font-size: 16px;
+    }
 }
 </style>

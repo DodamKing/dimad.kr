@@ -129,18 +129,22 @@
                             <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-6 mb-6">
                                 <div class="grid gap-6 sm:grid-cols-2">
                                     <!-- 원금/이자 비율 파이 차트 -->
-                                    <div>
+                                    <div class="w-full">
                                         <h3 class="text-sm font-medium text-slate-700 mb-4">원금/이자 비율</h3>
-                                        <ClientOnly>
-                                            <apexchart type="pie" :options="pieChartOptions" :series="pieSeries"
-                                                height="250" />
-                                        </ClientOnly>
+                                        <div class="w-full max-w-[300px] mx-auto"> <!-- 차트 컨테이너 크기 제한 -->
+                                            <ClientOnly>
+                                                <apexchart type="pie" :options="pieChartOptions" :series="pieSeries"
+                                                    height="250" />
+                                            </ClientOnly>
+                                        </div>
                                     </div>
                                     <!-- 상환 계획 라인 차트 -->
-                                    <div>
+                                    <div class="w-full">
                                         <h3 class="text-sm font-medium text-slate-700 mb-4">잔여 원금 추이</h3>
-                                        <apexchart type="line" :options="lineChartOptions" :series="lineSeries"
-                                            height="250" />
+                                        <div class="w-full"> <!-- 라인 차트는 전체 너비 사용 -->
+                                            <apexchart type="line" :options="lineChartOptions" :series="lineSeries"
+                                                height="250" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -203,10 +207,10 @@
                                     </div>
 
                                     <!-- 모바일 카드 뷰 -->
-                                    <div class="md:hidden">
+                                    <div class="md:hidden w-full">
                                         <div v-for="payment in schedule" :key="payment.month"
                                             class="mb-3 border-b border-slate-100 pb-3 last:border-0">
-                                            <div class="flex justify-between items-center mb-2">
+                                            <div class="flex justify-between items-center mb-2 px-1">
                                                 <span class="font-medium text-slate-800">{{ payment.month }}회차</span>
                                                 <span class="text-base sm:text-lg font-bold text-slate-900">{{
                                                     formatNumber(payment.payment) }}원</span>
@@ -295,7 +299,10 @@ const pieChartOptions = {
     colors: ['#6366f1', '#e11d48'],
     legend: {
         position: 'bottom'
-    }
+    },
+    // chart: {
+    //     width: '100%'  // 컨테이너에 맞춤
+    // }
 }
 
 const isScheduleExpanded = ref(false)
@@ -417,7 +424,8 @@ const lineChartOptions = {
     chart: {
         toolbar: {
             show: false
-        }
+        },
+        // width: '100%'
     },
     stroke: {
         curve: 'smooth'
