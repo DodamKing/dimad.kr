@@ -1,7 +1,7 @@
 <!-- pages/loan-calculator.vue -->
 <template>
-    <main class="min-h-screen bg-gradient-to-b from-slate-50 to-white py-8 sm:py-12">
-        <div class="container mx-auto px-4">
+    <main class="min-h-screen bg-gradient-to-b from-slate-50 to-white py-6 sm:py-8">
+        <div class="container mx-auto px-4 sm:px-6">
             <!-- 헤더 섹션 -->
             <div class="max-w-3xl mx-auto mb-8 text-center sm:mb-8">
                 <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">대출 상환 시뮬레이터</h1>
@@ -9,10 +9,10 @@
             </div>
 
             <div class="max-w-7xl mx-auto">
-                <div class="grid gap-8 lg:grid-cols-12 gap-4 sm:gap-8">
+                <div class="grid gap-6 lg:grid-cols-12 lg:gap-8">
                     <!-- 입력 폼 섹션 -->
-                    <div class="lg:col-span-5 p-4 sm:p-6">
-                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                    <div class="w-full lg:col-span-5">
+                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-6">
                             <h2 class="text-lg font-semibold text-slate-900 mb-6">대출 정보 입력</h2>
                             <form @submit.prevent="calculateLoan" class="space-y-6">
                                 <!-- 대출금액 입력 -->
@@ -98,10 +98,10 @@
                     </div>
 
                     <!-- 결과 섹션 -->
-                    <div class="lg:col-span-7 space-y-6">
+                    <div class="w-full lg:col-span-7 space-y-6">
                         <template v-if="calculated">
                             <!-- 요약 카드 -->
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-6">
                                 <h3 class="text-lg font-semibold text-slate-900 mb-4">상환 요약</h3>
                                 <div class="grid gap-4 sm:grid-cols-3">
                                     <div class="p-4 bg-slate-50 rounded-lg">
@@ -126,7 +126,7 @@
                             </div>
 
                             <!-- 차트 섹션 -->
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-6 mb-6">
                                 <div class="grid gap-6 sm:grid-cols-2">
                                     <!-- 원금/이자 비율 파이 차트 -->
                                     <div>
@@ -208,23 +208,25 @@
                                             class="mb-3 border-b border-slate-100 pb-3 last:border-0">
                                             <div class="flex justify-between items-center mb-2">
                                                 <span class="font-medium text-slate-800">{{ payment.month }}회차</span>
-                                                <span class="text-lg font-bold text-slate-900">{{
+                                                <span class="text-base sm:text-lg font-bold text-slate-900">{{
                                                     formatNumber(payment.payment) }}원</span>
                                             </div>
 
-                                            <div class="grid grid-cols-3 gap-4 text-xs sm:text-sm">
-                                                <div class="text-center p-2 bg-slate-50 rounded">
-                                                    <div class="text-slate-500 mb-1">원금</div>
-                                                    <div class="font-medium">{{ formatNumber(payment.principal) }}원
-                                                    </div>
+                                            <div class="grid grid-cols-3 gap-2 sm:gap-4 text-xs sm:text-sm">
+                                                <div class="text-center p-1.5 sm:p-2 bg-slate-50 rounded">
+                                                    <div class="text-slate-500 mb-0.5 sm:mb-1">원금</div>
+                                                    <div class="font-medium truncate">{{ formatNumber(payment.principal)
+                                                        }}원</div>
                                                 </div>
-                                                <div class="text-center p-2 bg-slate-50 rounded">
-                                                    <div class="text-slate-500 mb-1">이자</div>
-                                                    <div class="font-medium">{{ formatNumber(payment.interest) }}원</div>
+                                                <div class="text-center p-1.5 sm:p-2 bg-slate-50 rounded">
+                                                    <div class="text-slate-500 mb-0.5 sm:mb-1">이자</div>
+                                                    <div class="font-medium truncate">{{ formatNumber(payment.interest)
+                                                        }}원</div>
                                                 </div>
-                                                <div class="text-center p-2 bg-slate-50 rounded">
-                                                    <div class="text-slate-500 mb-1">잔액</div>
-                                                    <div class="font-medium">{{ formatNumber(payment.balance) }}원</div>
+                                                <div class="text-center p-1.5 sm:p-2 bg-slate-50 rounded">
+                                                    <div class="text-slate-500 mb-0.5 sm:mb-1">잔액</div>
+                                                    <div class="font-medium truncate">{{ formatNumber(payment.balance)
+                                                        }}원</div>
                                                 </div>
                                             </div>
                                         </div>

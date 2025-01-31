@@ -28,15 +28,15 @@ const services: Service[] = [
         isImplemented: true,
         categoryId: 'utilities'
     },
-    {
-        id: 'service-3',
-        name: '데이트 코스 추천',
-        description: '계절, 지역, 예산을 입력하면 맞춤형 데이트 코스를 추천해드립니다. AI가 다양한 장소와 활동을 조합해 특별한 데이트를 계획할 수 있도록 도와드려요!',
-        path: '/date-planner',
-        icon: '🎯',
-        isImplemented: false,
-        categoryId: 'lifestyle'
-    },
+    // {
+    //     id: 'service-3',
+    //     name: '데이트 코스 추천',
+    //     description: '계절, 지역, 예산을 입력하면 맞춤형 데이트 코스를 추천해드립니다. AI가 다양한 장소와 활동을 조합해 특별한 데이트를 계획할 수 있도록 도와드려요!',
+    //     path: '/date-planner',
+    //     icon: '🎯',
+    //     isImplemented: false,
+    //     categoryId: 'lifestyle'
+    // },
     {
         id: 'service-4',
         name: '타자 러시',
@@ -72,8 +72,16 @@ const services: Service[] = [
         icon: '📊',
         isImplemented: true,
         categoryId: 'finance'
+    },
+    {
+        id: 'service-8',
+        name: '만 나이 계산기',
+        description: '생년월일을 입력하면 만 나이, 세는 나이, 연 나이를 한 번에 계산해드립니다. 2023년 6월 28일부터 시행된 통일 나이에 맞춰 정확한 나이 계산을 도와드려요!',
+        path: '/age-calculator',
+        icon: '📅',
+        isImplemented: true,
+        categoryId: 'utilities'
     }
-
 ]
 
 export function useServices() {

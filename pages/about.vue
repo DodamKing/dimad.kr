@@ -197,20 +197,23 @@
         <section class="py-16 sm:py-24 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center">
-                    <span class="inline-block text-xs sm:text-sm font-medium text-violet-300 mb-3 sm:mb-4">Join
-                        Us</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">함께 만들어가요</h2>
+                    <span class="inline-block text-xs sm:text-sm font-medium text-violet-300 mb-3 sm:mb-4">
+                        Together
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+                        더 나은 서비스를 만들어가요
+                    </h2>
                     <p class="text-base sm:text-lg text-slate-300 mb-8 sm:mb-10">
-                        DIMAD는 계속해서 새로운 아이디어와 피드백을 통해 발전합니다.
+                        DIMAD는 여러분의 의견을 소중히 생각합니다.
                         <span class="block mt-2">
-                            <strong class="text-white">사용자가 느끼는 불편함</strong>이나
-                            <strong class="text-white">새로운 협업 제안</strong>이 있다면 언제든지 환영합니다.
+                            <strong class="text-white">개선 의견</strong>이나
+                            <strong class="text-white">새로운 아이디어</strong>가 있다면 언제든 알려주세요.
                         </span>
                     </p>
-                    <a href="mailto:contact@dimad.com"
+                    <a href="/contact"
                         class="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300">
-                        <EnvelopeIcon class="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
-                        이메일로 제안하기
+                        <ChatBubbleBottomCenterTextIcon class="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                        문의하기
                     </a>
                 </div>
             </div>
@@ -222,7 +225,7 @@
 import {
     BeakerIcon,
     RocketLaunchIcon,
-    EnvelopeIcon,
+    ChatBubbleBottomCenterTextIcon,
     GlobeAltIcon,
     SparklesIcon
 } from '@heroicons/vue/24/outline'

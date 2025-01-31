@@ -26,8 +26,7 @@
                     <div v-if="activeCategories.length > 0">
                         <h4 class="text-white font-semibold mb-6">서비스</h4>
                         <div class="space-y-2">
-                            <div v-for="category in activeCategories" 
-                                :key="category.id"
+                            <div v-for="category in activeCategories" :key="category.id"
                                 class="transition-colors duration-300 hover:bg-slate-800/30 rounded-lg overflow-hidden">
                                 <button @click="toggleCategory(category.id)"
                                     class="w-full text-left flex items-center justify-between text-slate-300 hover:text-white transition-all duration-300 px-4 py-3"
@@ -38,12 +37,11 @@
                                         class="w-4 h-4 transform transition-transform duration-300 ease-in-out text-slate-400"
                                         :class="{ 'rotate-180': openCategories[category.id] }" />
                                 </button>
-                                <div v-show="openCategories[category.id]" 
-                                    :id="`category-${category.id}`"
+                                <div v-show="openCategories[category.id]" :id="`category-${category.id}`"
                                     class="transition-all duration-300"
                                     :class="{ 'opacity-100 max-h-[500px]': openCategories[category.id], 'opacity-0 max-h-0': !openCategories[category.id] }">
                                     <div class="px-4 pb-3 space-y-2">
-                                        <NuxtLink v-for="service in getServicesByCategory(category.id)" 
+                                        <NuxtLink v-for="service in getServicesByCategory(category.id)"
                                             :key="service.id"
                                             :to="service.isImplemented ? service.path : '/coming-soon'"
                                             class="text-slate-400 hover:text-white transition-all duration-300 block py-2 pl-4">
@@ -57,23 +55,21 @@
                 </div>
 
                 <!-- 고객지원 섹션 -->
+                <!-- 고객지원 섹션 -->
                 <div class="md:col-span-3">
                     <h4 class="text-white font-semibold mb-6">고객지원</h4>
                     <div class="space-y-4">
-                        <NuxtLink v-for="link in navigation.supportLinks" 
-                            :key="link.path"
-                            :to="link.isImplemented ? link.path : '/coming-soon'"
-                            class="text-slate-400 hover:text-white transition-all duration-300 block">
-                            {{ link.name }}
+                        <NuxtLink to="/contact"
+                            class="text-slate-400 hover:text-white transition-all duration-300 flex items-center gap-2 group">
+                            <ChatBubbleBottomCenterTextIcon class="w-4 h-4" />
+                            문의하기
                         </NuxtLink>
-                        <div class="pt-4 border-t border-slate-800">
-                            <h5 class="text-white font-medium mb-3">Contact Us</h5>
-                            <a href="mailto:contact@dimad.com"
-                                class="text-slate-400 hover:text-white transition-all duration-300 flex items-center gap-2">
-                                <EnvelopeIcon class="w-4 h-4" />
-                                contact@dimad.com
-                            </a>
-                        </div>
+                        <!-- <NuxtLink to="/faq" -->
+                        <NuxtLink to="/coming-soon"
+                            class="text-slate-400 hover:text-white transition-all duration-300 flex items-center gap-2 group">
+                            <QuestionMarkCircleIcon class="w-4 h-4" />
+                            FAQ
+                        </NuxtLink>
                     </div>
                 </div>
             </div>
@@ -87,12 +83,10 @@
                         © {{ new Date().getFullYear() }} DIMAD. All rights reserved.
                     </p>
                     <div class="flex gap-6">
-                        <!-- <NuxtLink to="/"  -->
-                        <NuxtLink to="/coming-soon" 
+                        <NuxtLink to="/coming-soon"
                             class="text-sm text-slate-400 hover:text-white transition-all duration-300">
                             개인정보 처리방침
                         </NuxtLink>
-                        <!-- <NuxtLink to="/" -->
                         <NuxtLink to="/coming-soon"
                             class="text-sm text-slate-400 hover:text-white transition-all duration-300">
                             이용약관
@@ -109,12 +103,12 @@
 import { ref } from 'vue'
 import {
     ChevronDownIcon,
-    EnvelopeIcon,
-    CodeBracketIcon
+    ChatBubbleBottomCenterTextIcon,
+    CodeBracketIcon,
+    QuestionMarkCircleIcon
 } from '@heroicons/vue/24/outline'
 
 const servicesList = useServices()
-const navigation = useNavigation()
 const { categories } = useCategories()
 
 const openCategories = ref<Record<string, boolean>>({})

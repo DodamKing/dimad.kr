@@ -294,7 +294,7 @@ onUnmounted(() => {
 })
 
 const getServicesByCategory = (categoryId: string) => {
-    return servicesList.services.filter(service => service.categoryId === categoryId)
+    return servicesList.services.filter(service => service.categoryId === categoryId).reverse()
 }
 </script>
 
