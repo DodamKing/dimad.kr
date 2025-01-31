@@ -29,6 +29,7 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
+    'nuxt-gtag'
   ],
 
   plugins: [
@@ -50,5 +51,9 @@ export default defineNuxtConfig({
   css: [
     'vue-toastification/dist/index.css',
     '~/assets/css/main.css',
-  ]
+  ],
+
+  gtag: {
+    id: 'G-JBWHRH0P1Q'
+  }
 })
