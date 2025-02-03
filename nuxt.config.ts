@@ -22,6 +22,22 @@ export default defineNuxtConfig({
           href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
         },
         { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css' }
+      ],
+      script: [
+        {
+          src: `https://www.googletagmanager.com/gtag/js?id=G-JBWHRH0P1Q`,
+          async: true,
+          tagPosition: 'head'
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JBWHRH0P1Q');
+          `,
+          tagPosition: 'head'
+        }
       ]
     }
   },
@@ -53,7 +69,7 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
   ],
 
-  gtag: {
-    id: 'G-JBWHRH0P1Q'
-  }
+  // gtag: {
+  //   id: 'G-JBWHRH0P1Q'
+  // }
 })
