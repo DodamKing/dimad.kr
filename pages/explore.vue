@@ -296,6 +296,16 @@ onUnmounted(() => {
 const getServicesByCategory = (categoryId: string) => {
     return servicesList.services.filter(service => service.categoryId === categoryId).reverse()
 }
+
+useHead({
+    titleTemplate: '%s | 서비스 둘러보기기',
+    meta: [
+        {
+            name: 'description',
+            content: 'dimad는 더 나은 경험을 위한 다양한 서비스를 제공합니다.'
+        }
+    ]
+})
 </script>
 
 <style scoped>

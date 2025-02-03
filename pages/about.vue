@@ -254,6 +254,16 @@ const journey = [
         icon: GlobeAltIcon
     }
 ]
+
+useHead({
+    titleTemplate: '%s | 소개',
+    meta: [
+        {
+            name: 'description',
+            content: 'dimad를 소개합니다.'
+        }
+    ]
+})
 </script>
 
 <style scoped>
