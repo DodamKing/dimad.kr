@@ -15,6 +15,10 @@ export default defineNuxtConfig({
           name: "description",
           content: "디지털 노마드, 디마드의 홈페이지",
         },
+        {
+          name: 'google-site-verification',
+          content: 'PlYdRNSi1zGbnQC-1UtvTw81FjJ-zoEHv4n_V4dW360'
+        }
       ],
       link: [
         {
@@ -23,22 +27,6 @@ export default defineNuxtConfig({
         },
         { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css' }
       ],
-      script: [
-        {
-          src: `https://www.googletagmanager.com/gtag/js?id=G-JBWHRH0P1Q`,
-          async: true,
-          tagPosition: 'head'
-        },
-        {
-          innerHTML: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-JBWHRH0P1Q');
-          `,
-          tagPosition: 'head'
-        }
-      ]
     }
   },
 
@@ -69,7 +57,7 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
   ],
 
-  // gtag: {
-  //   id: 'G-JBWHRH0P1Q'
-  // }
+  gtag: {
+    id: 'G-JBWHRH0P1Q'
+  }
 })
