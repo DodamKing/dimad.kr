@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
 
-  ssr: true,
+  ssr: false,
 
   app: {
     head: {
@@ -44,9 +44,9 @@ export default defineNuxtConfig({
     transpile: ['fabric', 'recharts', 'vue3-apexcharts']
   },
 
-  nitro: {
-    preset: 'netlify'
-  },
+  // nitro: {
+  //   preset: 'vercel'
+  // },
 
   css: [
     'vue-toastification/dist/index.css',
