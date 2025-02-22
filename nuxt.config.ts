@@ -44,10 +44,6 @@ export default defineNuxtConfig({
     transpile: ['fabric', 'recharts', 'vue3-apexcharts']
   },
 
-  runtimeConfig: {
-    MONGODB_URI: process.env.MONGODB_URI
-  },
-
   nitro: {
     preset: "vercel"
   },
