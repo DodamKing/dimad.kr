@@ -23,3 +23,7 @@ logs
 .env
 .env.*
 !.env.example
+
+# Sitemap
+public/sitemap.xml
+public/sitemap-*.xml

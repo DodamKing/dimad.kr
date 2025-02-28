@@ -33,7 +33,8 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
-    'nuxt-gtag'
+    'nuxt-gtag',
+    'nuxt-simple-sitemap',
   ],
 
   plugins: [
@@ -55,5 +56,16 @@ export default defineNuxtConfig({
 
   gtag: {
     id: 'G-JBWHRH0P1Q'
-  }
+  },
+
+  sitemap: {
+    urls: [
+      'http://localhost:3000',
+      'https://dimad.kr'
+    ],
+    exclude: [
+      '/api-test',
+      '/thumbnail-maker'
+    ]
+  },
 })
