@@ -60,7 +60,6 @@ export default defineNuxtConfig({
 
   sitemap: {
     urls: [
-      'http://localhost:3000',
       'https://dimad.kr'
     ],
     exclude: [
