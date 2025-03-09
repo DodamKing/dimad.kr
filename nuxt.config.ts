@@ -18,7 +18,7 @@ export default defineNuxtConfig({
         {
           name: 'google-site-verification',
           content: 'PlYdRNSi1zGbnQC-1UtvTw81FjJ-zoEHv4n_V4dW360'
-        }
+        },
       ],
       link: [
         {
@@ -27,6 +27,13 @@ export default defineNuxtConfig({
         },
         { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css' }
       ],
+      script: [
+        {
+          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7892198097991803',
+          async: true,
+          crossorigin: 'anonymous'
+        }
+      ]
     }
   },
 
